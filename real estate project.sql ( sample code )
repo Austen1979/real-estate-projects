@@ -1,0 +1,75 @@
+
+
+select *
+from [housing state history]
+
+-- project fix date 
+
+-- south east
+
+---select [state], format(median_listing_price,'C') median_list_P, median_days_on_market
+--from [housing state history]
+--where  median_listing_price is not null    and  [state] is not null  and  [state] in  ('Florida', 'Georgia', 'South Carolina', 'North Carolina', 
+--'Alabama', 'Mississippi', 'Louisiana');
+ 
+ -- Northeast Region:
+SELECT [state] AS State, FORMAT(median_listing_price, 'C') AS Median_Listing_Price,
+median_days_on_market AS Median_Days_on_Market
+FROM [housing state history]
+WHERE median_listing_price IS NOT NULL AND [state] IS NOT NULL AND [state] IN ('Maine', 'New Hampshire', 
+'Vermont', 'Massachusetts', 'Rhode Island', 'Connecticut','New York', 'New Jersey', 
+'Pennsylvania');
+
+
+-- Midwest Region:
+SELECT [state] AS State, FORMAT(median_listing_price, 'C') AS Median_Listing_Price,
+median_days_on_market AS Median_Days_on_Market
+FROM [housing state history]
+WHERE median_listing_price IS NOT NULL AND [state] IS NOT NULL AND [state] IN ('Ohio', 'Indiana', 
+'Illinois', 'Michigan', 'Wisconsin','Minnesota', 'Iowa', 
+'Missouri', 'North Dakota', 'South Dakota', 'Nebraska', 'Kansas');
+
+
+-- South Atlantic:
+SELECT [state] AS State, FORMAT(median_listing_price, 'C') AS Median_Listing_Price,
+median_days_on_market AS Median_Days_on_Market
+FROM [housing state history]
+WHERE median_listing_price IS NOT NULL AND [state] IS NOT NULL AND [state] IN ('Delaware', 'Maryland', 
+'Virginia', 'West Virginia', 'North Carolina', 'South Carolina', 'Georgia', 'Florida');
+
+-- East South Central:
+SELECT [state] AS State, FORMAT(median_listing_price, 'C') AS Median_Listing_Price,
+median_days_on_market AS Median_Days_on_Market
+FROM [housing state history]
+WHERE median_listing_price IS NOT NULL AND [state] IS NOT NULL AND [state] IN ('Kentucky', 'Tennessee', 
+'Alabama', 'Mississippi');
+
+-- West South Central:
+SELECT [state] AS State, FORMAT(median_listing_price, 'C') AS Median_Listing_Price,
+median_days_on_market AS Median_Days_on_Market
+FROM [housing state history]
+WHERE median_listing_price IS NOT NULL AND [state] IS NOT NULL AND [state] IN ('Arkansas', 'Louisiana', 
+'Oklahoma', 'Texas');
+
+
+-- Mountain:
+SELECT [state] AS State, FORMAT(median_listing_price, 'C') AS Median_Listing_Price,
+median_days_on_market AS Median_Days_on_Market
+FROM [housing state history]
+WHERE median_listing_price IS NOT NULL AND [state] IS NOT NULL AND [state] IN ('Montana', 'Idaho', 
+'Wyoming', 'Colorado', 'New Mexico', 'Arizona', 'Utah', 'Nevada');
+
+-- Pacific:
+SELECT [state] AS State, FORMAT(median_listing_price, 'C') AS Median_Listing_Price,
+median_days_on_market AS Median_Days_on_Market
+FROM [housing state history]
+WHERE median_listing_price IS NOT NULL AND [state] IS NOT NULL AND [state] IN ('Washington', 'Oregon', 
+'California', 'Alaska', 'Hawaii');
+
+
+	
+
+select top(10) [state],median_days_on_market,FORMAT(median_listing_price, 'C0') AS Median_Listing_Price
+from [housing state history]
+where [state] is not null and median_listing_price is not null
+order by median_days_on_market
